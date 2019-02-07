@@ -20,7 +20,7 @@ slSuDung = len(ChuoiSuDung)
 
 
 # Tìm vị trí của số hóa đơn lớn nhất của chuỗi hóa đơn sử dụng trong chuỗi hóa đơn phát hành.
-SoChuaDung = ChuoiPhatHanh.index(max(ChuoiSuDung))
+SoChuaDung = ChuoiPhatHanh.index(max(sorted(ChuoiSuDung)))
 ChuoiChuaDung = ChuoiPhatHanh[SoChuaDung+1:None]
 
 
@@ -36,7 +36,7 @@ slXoaBo = len(ChuoiXoaBo)
 print('{:-^80}'.format("Ket Qua"))
 print("Chuoi phat hanh: %s" %ChuoiPhatHanh)
 print("So luong hoa don phat hanh: %s" %slPhatHanh)
-print("Chuoi su dung: %s" %ChuoiSuDung)
+print("Chuoi su dung: %s" %sorted(ChuoiSuDung))
 print("So luong hoa don su dung: %s" %slSuDung)
 print("Chuoi xoa bo: %s" %ChuoiXoaBo)
 print("So luong hoa don xoa bo: %s" %(slXoaBo))
