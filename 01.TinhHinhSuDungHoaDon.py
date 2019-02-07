@@ -42,3 +42,8 @@ print("Chuoi xoa bo: %s" %ChuoiXoaBo)
 print("So luong hoa don xoa bo: %s" %(slXoaBo))
 print("Chuoi chua dung: %s" %ChuoiChuaDung)
 print("So luong hoa don chua dung: %s" %len(ChuoiChuaDung))
+'''
+Các vấn đề chưa giải quyết được:
+    1. Dãy nhập vào không theo thứ tự, thì ChuoiChuaSuDung sẽ bị lấy sai.
+    2. Chưa giải quyết được bài toán 1 dãy phát hành có nhiều dải sử dụng.
+'''
