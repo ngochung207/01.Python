@@ -47,4 +47,4 @@ print("So luong hoa don chua dung: %s" %len(ChuoiChuaDung))
 #    1. Dãy nhập vào không theo thứ tự, thì ChuoiChuaSuDung sẽ bị lấy sai.
 #    2. Chưa giải quyết được bài toán 1 dãy phát hành có nhiều dải sử dụng.
 #'''
-#tiếp tục viết code ngày 2019.08.02
+#tiếp tục viết code ngày 2019.08.02 test
