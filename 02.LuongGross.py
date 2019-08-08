@@ -33,7 +33,7 @@ def LuongGross(ThucNhan, LuongCoBan, SoNguoiPhuThuoc):
 		TNTT = LuongGross - TienBaoHiem - SoNguoiPhuThuoc*3600000 - 9000000
 		ThueTNCN = TienThueTNCN(TNTT)
 		SaiSo = ThucNhan - (LuongGross - ThueTNCN - TienBaoHiem)
-		if SaiSo >= -0.9 and SaiSo <= 0.9:
+		if SaiSo >= -1 and SaiSo <= 1:
 			break
 		elif 0.3*LuongGross >= ThucNhan:
 			break
@@ -42,4 +42,4 @@ def LuongGross(ThucNhan, LuongCoBan, SoNguoiPhuThuoc):
 	return LuongGross
 
 # Ví dụ test công thức
-print(LuongGross(15000000,9000000,1))
+print(LuongGross(25000000,9000000,2))
