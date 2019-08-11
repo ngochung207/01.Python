@@ -25,21 +25,48 @@ def TienThueTNCN(TNTT):
 	else:
 		TienThueTNCN = 0.35 * TNTT - 9850000
 		return TienThueTNCN
+def ThuNhapTinhThue(Tien):
+	if Tien <= 5000000:
+		ThuNhapTinhThue = Tien/0.95
+		return ThuNhapTinhThue
+	elif Tien <= 10000000:
+		ThuNhapTinhThue = (Tien-250000)/0.9
+		return ThuNhapTinhThue
+	elif Tien <= 18000000:
+		ThuNhapTinhThue = (Tien-750000)/0.85
+		return ThuNhapTinhThue
+	elif Tien <= 32000000:
+		ThuNhapTinhThue = (Tien-1650000)/0.8
+		return ThuNhapTinhThue
+	elif Tien <= 52000000:
+		ThuNhapTinhThue = (Tien-3250000)/0.75
+		return ThuNhapTinhThue
+	elif Tien <= 80000000:
+		ThuNhapTinhThue = (Tien-5850000)/0.7
+		return ThuNhapTinhThue
+	else:
+		ThuNhapTinhThue = (Tien-9850000)/0.65
+		return ThuNhapTinhThue
 # Tính ra mức lương Gross từ mức lương Net thực chi.
 def LuongGross(ThucNhan, LuongCoBan, SoNguoiPhuThuoc):
-	LuongGross = 0.9 * ThucNhan
+
 	TienBaoHiem = BaoHiem(LuongCoBan)
+	
+	GiamTru = SoNguoiPhuThuoc * 3600000 + 9000000
+
+	ChenhLech = ThucNhan - GiamTru
+
+	LuongGross = ThucNhan + TienBaoHiem + TienThueTNCN(ThuNhapTinhThue(max(ChenhLech,0)))
+	
 	while True:
-		TNTT = LuongGross - TienBaoHiem - SoNguoiPhuThuoc*3600000 - 9000000
-		ThueTNCN = TienThueTNCN(TNTT)
-		SaiSo = ThucNhan - (LuongGross - ThueTNCN - TienBaoHiem)
+		
+		SaiSo = ThucNhan - (LuongGross - TienThueTNCN(max(LuongGross - TienBaoHiem - GiamTru,0)) - TienBaoHiem)
 		if SaiSo >= -1 and SaiSo <= 1:
-			break
-		elif 0.3*LuongGross >= ThucNhan:
+			LuongGross += SaiSo
 			break
 		else:
 			LuongGross += 1
 	return LuongGross
 
 # Ví dụ test công thức
-print(LuongGross(25000000,9000000,2))
+print(LuongGross(80000000,4000000,1))
