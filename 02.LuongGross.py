@@ -51,12 +51,11 @@ def ThuNhapTinhThue(Tien):
 def LuongGross(ThucNhan, LuongCoBan, SoNguoiPhuThuoc):
 
 	TienBaoHiem = BaoHiem(LuongCoBan)
-	
+
 	GiamTru = SoNguoiPhuThuoc * 3600000 + 9000000
 
-	ChenhLech = ThucNhan - GiamTru
-
-	LuongGross = ThucNhan + TienBaoHiem + TienThueTNCN(ThuNhapTinhThue(max(ChenhLech,0)))
+	# (ThucNhan - GiamTru) --> tinh ra muc thu nhap tinh thue
+	LuongGross = ThucNhan + TienBaoHiem + TienThueTNCN(ThuNhapTinhThue(max(ThucNhan - GiamTru,0)))
 	
 	while True:
 		

@@ -33,18 +33,20 @@ for i in range(0, len(ChuoiPhatHanh[0:SoChuaDung+1])):
 slXoaBo = len(ChuoiXoaBo)
 
 # In ra kết quả
-print('{:-^80}'.format("Ket Qua"))
+print('{:-^80}'.format("BÁO CÁO TÌNH HÌNH SỬ DỤNG HÓA ĐƠN"))
+
+print('{:-^80}'.format("Thông tin hóa đơn phát hành"))
 print("Chuoi phat hanh: %s" %ChuoiPhatHanh)
 print("So luong hoa don phat hanh: %s" %slPhatHanh)
+
+print('{:-^80}'.format("Thông tin hóa đơn sử dụng"))
 print("Chuoi su dung: %s" %sorted(ChuoiSuDung))
 print("So luong hoa don su dung: %s" %slSuDung)
+
+print('{:-^80}'.format("Thông tin hóa đơn xóa bỏ"))
 print("Chuoi xoa bo: %s" %ChuoiXoaBo)
 print("So luong hoa don xoa bo: %s" %(slXoaBo))
+
+print('{:-^80}'.format("Thông tin hóa đơn chưa sử dụng"))
 print("Chuoi chua dung: %s" %ChuoiChuaDung)
 print("So luong hoa don chua dung: %s" %len(ChuoiChuaDung))
-'''
-# Các vấn đề chưa giải quyết được:
-#    1. Dãy nhập vào không theo thứ tự, thì ChuoiChuaSuDung sẽ bị lấy sai.
-#    2. Chưa giải quyết được bài toán 1 dãy phát hành có nhiều dải sử dụng.
-#'''
-#tiếp tục viết code ngày 2019.08.02 test
