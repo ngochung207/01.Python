@@ -62,7 +62,7 @@ for key1 in dicA.keys():
     if len(temp.keys()) > 1:
         a = 0
         for key3 in temp.keys():
-            a += max(temp.values())
+            a += temp.get(key3)
             b = dicA.get(key1)
             c = b - a
             ls_temp.append(key3)
@@ -124,18 +124,15 @@ key3 = 0
 if len(dicA.keys()) != 0 and len(dicB.keys()) != 0:
     for key1 in dicA1.keys():
         for key2 in dicB1.keys():
-            # if dicB.get(key2) > dicA.get(key1) or dicB.get(key2) < dicA.get(key1):
             temp[key2] = dicB1.get(key2)
-        if len(temp.keys()) > 1:
             a = 0
             for key3 in temp.keys():
-                #a += temp.get(key3)
+                a += temp.get(key3)
                 b = dicA1.get(key1)
-                c = a - b
-                a = max(temp.values())
-
+                c = b - a
                 ls_temp.append(key3)
-                if c == 0 or (c <= 10000000 and c >= -10000000):
+                if c == 0 or (c <= 100000 and c >= -100000):
+                    ls_del_dic_temp1.append(key1)
                     for ls2 in ls_temp:
                         ketQua[i, 0] = key1
                         ketQua[i, 1] = key1
@@ -144,21 +141,9 @@ if len(dicA.keys()) != 0 and len(dicB.keys()) != 0:
                         ketQua[i, 4] = temp.get(ls2)
                         i += 1
                         del dicB[ls2]
-                break
-            ls_temp.clear()
-        else:
-            for key3 in temp.keys():
-                if dicA1.get(key1) - temp.get(key3) >= -1000000 and dicA1.get(key1) - temp.get(key3) <= 1000000:
-                    ketQua[i, 0] = key1
-                    ketQua[i, 1] = key1
-                    ketQua[i, 2] = key3
-                    ketQua[i, 3] = dicA1.get(key1)
-                    ketQua[i, 4] = temp.get(key3)
-                    i += 1
-                    del dicB[key3]
-                break
-    ls_del_dic_temp1.append(key1)
-    temp.clear()
+                        ls_temp.clear()
+                        break
+        temp.clear()
 if len(dicA.keys()) != 0:
     for key1 in dicA.keys():
         ketQua[i, 0] = key1
