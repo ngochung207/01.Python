@@ -72,10 +72,10 @@ dicA = dict()
 dicB = dict()
 
 # Nạp dữ liệu vào dicA và dicB
-for T in range(1, 184):  # 184
+for T in range(1, 2):  # 184
     dicA[str(ps_Tang.at[T, 0])] = float(ps_Tang.at[T, 1])
 
-for G in range(1, 388):  # 388
+for G in range(1, 41):  # 388
     dicB[str(ps_Giam.at[G, 0])] = float(ps_Giam.at[G, 1])
 
 temp = dict()
